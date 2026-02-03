@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Python Tips Every Data Scientist Should Know - Abdullah Bin Zubair</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediaqueries.css">
+  <style>
+    /* Blog Post Specific Styles */
+    .blog-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .blog-post-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .blog-post-category {
+      display: inline-block;
+      background: var(--color-black);
+      color: var(--color-white);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .blog-post-title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .blog-post-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      color: var(--color-gray-600);
+      font-size: 0.9375rem;
+      margin-bottom: 2rem;
+    }
+
+    .blog-post-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blog-post-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+    }
+
+    .blog-post-content {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--color-gray-700);
+    }
+
+    .blog-post-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--color-black);
+    }
+
+    .blog-post-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--color-black);
+    }
+
+    .blog-post-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-post-content ul,
+    .blog-post-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+
+    .blog-post-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-post-content code {
+      background: var(--color-gray-100);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .blog-post-content pre {
+      background: var(--color-gray-100);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-black);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: gap 0.3s ease;
+    }
+
+    .back-to-blog:hover {
+      gap: 0.75rem;
+    }
+
+    .share-section {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-gray-200);
+      text-align: center;
+    }
+
+    .share-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .share-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-gray-100);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--color-black);
+    }
+
+    .share-btn:hover {
+      background: var(--color-black);
+      color: var(--color-white);
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 768px) {
+      .blog-post-container {
+        padding: 6rem 1.5rem 3rem;
+      }
+
+      .blog-post-title {
+        font-size: 2rem;
+      }
+
+      .blog-post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .blog-post-image {
+        height: 250px;
+      }
+
+      .blog-post-content {
+        font-size: 1rem;
+      }
+
+      .blog-post-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .blog-post-content h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-container">
+      <div class="logo">abdullah</div>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="index.html#hero" class="mobile-link">Home</a>
+      <a href="index.html#about" class="mobile-link">About</a>
+      <a href="index.html#experience" class="mobile-link">Experience</a>
+      <a href="index.html#projects" class="mobile-link">Projects</a>
+      <a href="index.html#blog" class="mobile-link">Blog</a>
+      <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Blog Post Content -->
+  <article class="blog-post-container">
+    <a href="index.html#blog" class="back-to-blog">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Blog
+    </a>
+
+    <header class="blog-post-header">
+      <span class="blog-post-category">Programming</span>
+      <h1 class="blog-post-title">10 Python Tips Every Data Scientist Should Know</h1>
+      <div class="blog-post-meta">
+        <span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 4V8L11 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          December 28, 2024
+        </span>
+        <span>4 min read</span>
+        <span>By Abdullah Bin Zubair</span>
+      </div>
+    </header>
+
+    <img src="./assets/blog-3.jpg" alt="Python Programming Tips" class="blog-post-image">
+
+    <div class="blog-post-content">
+      <p>
+        Python is the backbone of data science, but mastering its nuances can significantly boost your productivity. 
+        Here are 10 essential tips that have transformed my workflow and can help you write cleaner, faster, and 
+        more efficient code.
+      </p>
+
+      <h2>1. List Comprehensions for Cleaner Code</h2>
+      <p>
+        Instead of using loops, list comprehensions provide a more Pythonic and faster way to create lists:
+      </p>
+      <pre><code># Instead of this:
+squares = []
+for i in range(10):
+    squares.append(i**2)
+
+# Do this:
+squares = [i**2 for i in range(10)]</code></pre>
+
+      <h2>2. Use enumerate() for Index and Value</h2>
+      <p>
+        When you need both the index and value while iterating, <code>enumerate()</code> is your friend:
+      </p>
+      <pre><code># Instead of this:
+for i in range(len(my_list)):
+    print(f"Index {i}: {my_list[i]}")
+
+# Do this:
+for i, value in enumerate(my_list):
+    print(f"Index {i}: {value}")</code></pre>
+
+      <h2>3. F-strings for String Formatting</h2>
+      <p>
+        F-strings (formatted string literals) are faster and more readable than older formatting methods:
+      </p>
+      <pre><code>name = "Abdullah"
+age = 22
+
+# Modern way:
+message = f"My name is {name} and I'm {age} years old"
+
+# You can even do inline calculations:
+print(f"Next year I'll be {age + 1}")</code></pre>
+
+      <h2>4. Use .get() for Dictionaries</h2>
+      <p>
+        Avoid KeyError exceptions by using the <code>.get()</code> method with a default value:
+      </p>
+      <pre><code># Instead of this (risky):
+value = my_dict['key']
+
+# Do this (safe):
+value = my_dict.get('key', 'default_value')</code></pre>
+
+      <h2>5. Zip for Parallel Iteration</h2>
+      <p>
+        When you need to iterate over multiple lists simultaneously, <code>zip()</code> is incredibly useful:
+      </p>
+      <pre><code>names = ['Alice', 'Bob', 'Charlie']
+ages = [25, 30, 35]
+
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")</code></pre>
+
+      <h2>6. Use Sets for Unique Elements and Fast Lookups</h2>
+      <p>
+        Sets provide O(1) lookup time and automatically handle duplicates:
+      </p>
+      <pre><code># Remove duplicates:
+my_list = [1, 2, 2, 3, 4, 4, 5]
+unique_values = list(set(my_list))
+
+# Fast membership testing:
+allowed_users = {'alice', 'bob', 'charlie'}
+if user in allowed_users:  # This is very fast!
+    grant_access()</code></pre>
+
+      <h2>7. Context Managers with 'with'</h2>
+      <p>
+        Always use context managers for file operations to ensure proper cleanup:
+      </p>
+      <pre><code># Instead of this:
+file = open('data.txt', 'r')
+content = file.read()
+file.close()
+
+# Do this (automatic cleanup):
+with open('data.txt', 'r') as file:
+    content = file.read()</code></pre>
+
+      <h2>8. Use defaultdict for Counting and Grouping</h2>
+      <p>
+        <code>defaultdict</code> from collections eliminates the need to check if keys exist:
+      </p>
+      <pre><code>from collections import defaultdict
+
+# Counting occurrences:
+counts = defaultdict(int)
+for item in data:
+    counts[item] += 1
+
+# Grouping items:
+groups = defaultdict(list)
+for item in data:
+    groups[item.category].append(item)</code></pre>
+
+      <h2>9. Generator Expressions for Memory Efficiency</h2>
+      <p>
+        When working with large datasets, use generators instead of lists to save memory:
+      </p>
+      <pre><code># List comprehension (stores all in memory):
+squares_list = [x**2 for x in range(1000000)]
+
+# Generator expression (computes on-the-fly):
+squares_gen = (x**2 for x in range(1000000))
+
+# Use with functions that accept iterables:
+total = sum(x**2 for x in range(1000000))</code></pre>
+
+      <h2>10. Use pandas .apply() with Lambda Functions</h2>
+      <p>
+        Combine pandas with lambda functions for quick data transformations:
+      </p>
+      <pre><code>import pandas as pd
+
+# Apply function to column:
+df['price_usd'] = df['price_eur'].apply(lambda x: x * 1.1)
+
+# Apply to multiple columns:
+df['full_name'] = df.apply(lambda row: f"{row['first_name']} {row['last_name']}", axis=1)</code></pre>
+
+      <h2>Bonus Tip: Use Type Hints</h2>
+      <p>
+        Type hints make your code more readable and help catch bugs early:
+      </p>
+      <pre><code>def calculate_average(numbers: list[float]) -> float:
+    """Calculate the average of a list of numbers."""
+    return sum(numbers) / len(numbers)
+
+# Modern Python also supports:
+from typing import Optional
+
+def find_user(user_id: int) -> Optional[dict]:
+    # Returns dict if found, None otherwise
+    return users.get(user_id)</code></pre>
+
+      <h2>Conclusion</h2>
+      <p>
+        These tips represent just the tip of the iceberg when it comes to Python best practices. The key is to:
+      </p>
+      <ul>
+        <li>Write code that's readable first, then optimize for performance</li>
+        <li>Leverage Python's built-in functions and standard library</li>
+        <li>Use appropriate data structures for your use case</li>
+        <li>Practice regularly and learn from others' code</li>
+      </ul>
+
+      <p>
+        Remember, the goal isn't to use every trick in every project, but to know when each technique is most 
+        appropriate. Happy coding!
+      </p>
+
+      <p>
+        <em>
+          Want to discuss Python best practices? Connect with me on 
+          <a href="https://www.linkedin.com/in/abdullahbinzubair/" target="_blank">LinkedIn</a>!
+        </em>
+      </p>
+    </div>
+
+    <!-- Share Section -->
+    <div class="share-section">
+      <h3>Share this article</h3>
+      <div class="share-buttons">
+        <a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=10%20Python%20Tips%20Every%20Data%20Scientist%20Should%20Know" 
+           target="_blank" class="share-btn" title="Share on Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_URL" 
+           target="_blank" class="share-btn" title="Share on LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" 
+           target="_blank" class="share-btn" title="Share on Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 Abdullah Bin Zubair. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
