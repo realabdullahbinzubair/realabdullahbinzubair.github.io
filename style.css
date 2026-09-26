@@ -15,15 +15,20 @@ img{display:block;max-width:100%}
 .nav-cta{justify-self:end;font-size:13px;font-weight:700;padding:10px 15px;border:1px solid #c9c9c9;border-radius:999px;transition:.25s}
 .nav-cta:hover{background:#000;color:#fff;border-color:#000}
 .menu-toggle,.mobile-menu{display:none}
-.hero{min-height:100svh;padding:150px clamp(22px,5.2vw,90px) 70px;display:flex;flex-direction:column;justify-content:center}
+.hero{min-height:100svh;padding:118px clamp(22px,5.2vw,90px) 54px;display:grid;grid-template-columns:minmax(0,1.22fr) minmax(330px,.78fr);align-items:center;gap:clamp(44px,7vw,120px)}
+.hero-copy{min-width:0}
 .hero-kicker{font-family:"DM Mono",monospace;font-size:12px;color:#555;text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:45px}
 .status-dot{width:7px;height:7px;background:#1b9c46;border-radius:50%;box-shadow:0 0 0 5px rgba(27,156,70,.1)}
-.hero h1{font-size:clamp(58px,8.9vw,148px);letter-spacing:-.072em;line-height:.88;margin:0;max-width:1400px;font-weight:700}
+.hero h1{font-size:clamp(64px,8.2vw,132px);letter-spacing:-.072em;line-height:.86;margin:0;font-weight:700}
 .hero h1 .soft{color:#a1a1a6}
-.hero-bottom{display:grid;grid-template-columns:minmax(260px,550px) auto;align-items:end;gap:40px;margin-top:72px}
-.hero-bottom p{font-size:clamp(17px,1.5vw,22px);letter-spacing:-.02em;color:#555;margin:0}
-.circle-link{width:58px;height:58px;border:1px solid #bbb;border-radius:50%;display:grid;place-items:center;justify-self:end;font-size:22px;transition:.3s}
-.circle-link:hover{background:#000;color:#fff;border-color:#000;transform:translateY(4px)}
+.hero-role{max-width:650px;font-size:clamp(17px,1.55vw,22px);letter-spacing:-.025em;color:#555;margin:40px 0 0}
+.hero-actions{display:flex;align-items:center;gap:28px;margin-top:34px}
+.primary-link{display:inline-flex;align-items:center;gap:22px;background:#000;color:#fff;padding:14px 18px 14px 22px;border-radius:999px;font-size:13px;font-weight:700;transition:.25s}
+.primary-link:hover{transform:translateY(-2px);background:#282828}
+.text-link{font-size:13px;font-weight:700;border-bottom:1px solid #aaa;padding:4px 0}
+.hero-portrait{margin:0;position:relative;align-self:stretch;min-height:570px;max-height:760px;border-radius:var(--radius);overflow:hidden;background:#f2f2f4}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:none}
+.hero-portrait figcaption{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;gap:16px;padding:13px 16px;border-radius:14px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font:500 10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.05em}
 .marquee{overflow:hidden;background:#000;color:#fff;padding:21px 0}
 .marquee-track{display:flex;align-items:center;gap:34px;min-width:max-content;animation:marquee 24s linear infinite;font:500 12px "DM Mono",monospace;letter-spacing:.16em}
 .marquee-track i{font-size:8px;color:#777}
@@ -34,22 +39,18 @@ img{display:block;max-width:100%}
 .section-intro{display:flex;align-items:start;justify-content:space-between;gap:40px;margin-bottom:80px}
 .section-intro h2,.about h2,.contact h2{font-size:clamp(50px,7vw,104px);letter-spacing:-.065em;line-height:.92;margin:0;font-weight:700}
 .section-intro h2 span,.contact h2 span{color:#a1a1a6}
-.projects{display:grid;gap:120px}
-.project-visual{height:min(68vw,820px);background:#f1f1f3;border-radius:var(--radius);overflow:hidden;position:relative;display:block}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.6vw,40px)}
+.project-visual{aspect-ratio:3/2;background:#f1f1f3;border-radius:24px;overflow:hidden;position:relative;display:block}
 .project-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .6s}
 .project-visual:hover img{transform:scale(1.025);filter:contrast(1.03)}
 .project-arrow{position:absolute;top:24px;right:24px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);font-size:19px;transition:.3s}
 .project-visual:hover .project-arrow{background:#000;color:#fff;transform:rotate(45deg)}
-.project-copy{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;padding-top:28px}
+.project-copy{display:flex;flex-direction:column;gap:14px;padding-top:24px}
 .project-number{font:500 11px "DM Mono",monospace;color:#777;margin:0 0 8px}
-.project h3{font-size:clamp(28px,3.1vw,52px);letter-spacing:-.045em;line-height:1.03;margin:0}
-.project-copy>p{margin:4px 0 22px;color:#555;font-size:16px;max-width:520px}
-.project-copy ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;grid-column:2}
+.project h3{font-size:clamp(25px,2.2vw,36px);letter-spacing:-.045em;line-height:1.06;margin:0}
+.project-copy>p{margin:0;color:#555;font-size:15px;max-width:520px}
+.project-copy ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:4px 0 0}
 .project-copy li{font-size:11px;border:1px solid #ccc;border-radius:99px;padding:7px 11px}
-.project-pair{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.project-pair .project-visual{height:min(46vw,630px)}
-.project-pair .project-copy{grid-template-columns:1fr;gap:14px}
-.project-pair .project-copy ul{grid-column:auto}
 .more-work{margin-top:120px;border-top:1px solid var(--line)}
 .more-work a{display:grid;grid-template-columns:70px 1fr auto;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);font-size:clamp(22px,3vw,42px);letter-spacing:-.04em;transition:.25s}
 .more-work a span{font:12px "DM Mono",monospace;color:#888}
@@ -62,7 +63,7 @@ img{display:block;max-width:100%}
 .about-content{display:grid;gap:80px}
 .portrait{margin:0}
 .portrait-bg{position:absolute}
-.portrait img{width:100%;max-height:760px;object-fit:contain;object-position:center bottom;border-radius:var(--radius);background:linear-gradient(145deg,#e4e4e8,#fafafa);filter:grayscale(100%)}
+.portrait img{width:100%;max-height:760px;object-fit:contain;object-position:center bottom;border-radius:var(--radius);background:linear-gradient(145deg,#e4e4e8,#fafafa);filter:none}
 .portrait figcaption{font:11px/1.6 "DM Mono",monospace;text-transform:uppercase;color:#777;margin-top:14px}
 .story{display:grid;grid-template-columns:1fr 1fr;gap:36px}
 .story p{font-size:clamp(19px,2vw,28px);letter-spacing:-.035em;line-height:1.35;margin:0}
@@ -117,10 +118,11 @@ footer .wordmark{color:#000}
 .mobile-menu{display:flex;position:fixed;z-index:998;inset:68px 0 0;background:rgba(255,255,255,.97);flex-direction:column;padding:50px 24px;gap:22px;opacity:0;visibility:hidden;transition:.25s}
 .mobile-menu.open{opacity:1;visibility:visible}
 .mobile-menu a{font-size:42px;letter-spacing:-.05em;font-weight:700}
-.hero{padding-top:130px}
-.hero h1{font-size:clamp(50px,13vw,95px)}
-.project-pair,.about,.story{grid-template-columns:1fr}
-.project-pair .project-visual{height:70vw}
+.hero{padding-top:110px;grid-template-columns:1fr;gap:48px}
+.hero h1{font-size:clamp(62px,13vw,104px)}
+.hero-portrait{min-height:0;aspect-ratio:4/5;max-height:none}
+.projects{grid-template-columns:1fr 1fr}
+.about,.story{grid-template-columns:1fr}
 .about-sticky{position:static}
 .bento{grid-template-columns:1fr}
 .section-intro{flex-direction:column}
@@ -128,19 +130,17 @@ footer .wordmark{color:#000}
 .article img{width:130px;height:95px}
 }
 @media(max-width:600px){:root{--radius:20px}
-.hero{min-height:92svh;padding-bottom:45px}
+.hero{min-height:auto;padding-bottom:45px;gap:34px}
 .hero-kicker{margin-bottom:32px;font-size:10px}
-.hero h1{font-size:13.5vw;line-height:.91}
-.hero-bottom{grid-template-columns:1fr auto;margin-top:45px}
-.hero-bottom p{font-size:15px}
-.circle-link{width:48px;height:48px}
+.hero h1{font-size:15.5vw;line-height:.9}
+.hero-role{font-size:15px;margin-top:28px}
+.hero-actions{margin-top:26px;gap:20px}
+.hero-portrait{aspect-ratio:4/5}
+.hero-portrait figcaption{font-size:9px}
 .section{padding-top:90px;padding-bottom:90px}
 .section-intro{margin-bottom:48px}
-.project-visual{height:72vw}
-.project-copy{grid-template-columns:1fr;gap:14px}
-.project-copy ul{grid-column:auto}
+.projects{grid-template-columns:1fr}
 .projects{gap:80px}
-.project-pair{gap:80px}
 .more-work{margin-top:80px}
 .more-work a{grid-template-columns:42px 1fr auto;font-size:21px}
 .about-content{gap:55px}
